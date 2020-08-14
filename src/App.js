@@ -1,24 +1,28 @@
+//Testing aesthetic
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+//Import bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css';
+//Import routes to route different urls to different components
+import {BrowserRouter as Router, Route} from "react-router-dom";
+import Navbar from "./components/Navbar";
+import AddItem from "./components/routes/add-item.route.js";
+import Home from "./components/Home.js";
+import './styles.css';
 
 function App() {
+
+  var year = new Date().getFullYear();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Router>
+        <Navbar />
+        <br/>
+        {/* Create a Route for Each Part of the application */}
+        <Route path="/" exact component={Home}/>
+        <Route path="/add" exact component={AddItem}/>
+        <footer><p>Created by Denzel Edwards © {year}</p></footer>
+      </Router>
     </div>
   );
 }
