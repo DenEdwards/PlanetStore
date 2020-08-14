@@ -1,4 +1,4 @@
-//Testing aesthetic
+//Testing Feature 1
 import React from 'react';
 //Import bootstrap
 import 'bootstrap/dist/css/bootstrap.min.css';
