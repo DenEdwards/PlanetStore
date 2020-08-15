@@ -7,7 +7,8 @@ function AddItem(){
         name: "",
         description: "",
         price: "",
-        image: ""
+        image: "",
+        attributes: ""
     });
 
     function handleChange(event){
@@ -19,28 +20,40 @@ function AddItem(){
                 name: value,
                 description: prevItem.description,
                 price: prevItem.price,
-                image: prevItem.image
+                image: prevItem.image,
+                attributes: prevItem.attributes,
             };
         }else if(name ==="description"){
             return {
                 name: prevItem.name,
                 description: value,
                 price: prevItem.price,
-                image: prevItem.image
+                image: prevItem.image,
+                attributes: prevItem.attributes,
             };
         }else if(name ==="price"){
             return {
                 name: prevItem.name,
                 description: prevItem.description,
                 price: value,
-                image: prevItem.image
+                image: prevItem.image,
+                attributes: prevItem.attributes,
             };
         }else if(name ==="image"){
             return {
                 name: prevItem.name,
                 description: prevItem.description,
                 price: prevItem.price,
-                image: value
+                image: value,
+                attributes: prevItem.attributes,
+            };
+        }else if(name ==="attributes"){
+            return {
+                name: prevItem.name,
+                description: prevItem.description,
+                price: prevItem.price,
+                image: prevItem.image,
+                attributes:value ,
             };
         }
         });
@@ -52,13 +65,13 @@ function AddItem(){
             description: foodItem.description,
             price: foodItem.price,
             image: foodItem.image,
+            attributes: foodItem.attributes,
         }
 
         console.log(food);
 
         axios.post("http://localhost:3001/items/add", food)
             .then(res => console.log(res.data));
-
     }
 
     return(
@@ -92,6 +105,13 @@ function AddItem(){
             placeholder="Image"
             name="image"
             value={foodItem.image}
+            />
+            <input
+            onChange={handleChange}
+            type="text"
+            placeholder="Attributes"
+            name="attributes"
+            value={foodItem.attributes}
             />
             <button onClick={onSubmit}>Submit</button>
         </form>

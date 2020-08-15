@@ -20,7 +20,7 @@ function App() {
         {/* Create a Route for Each Part of the application */}
         <Route path="/" exact component={Home}/>
         <Route path="/add" exact component={AddItem}/>
-        <footer><p>Created by Denzel Edwards © {year}</p></footer>
+        <footer><p>Made by Denzel Edwards © {year}</p></footer>
       </Router>
     </div>
   );

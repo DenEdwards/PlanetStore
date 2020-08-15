@@ -3,12 +3,22 @@ import ItemCard from "./ItemCard";
 import axios from "axios";
 
 function Home(){
-    const [items, setItems] = useState([]);
+    const [stateVar, setState] = useState({
+        items: [],
+        size: "",
+        sort: ""
+    });
 
     // Make a request for a user with a given ID
     axios.get("http://localhost:3001/items")
     .then(function (response) {
-        setItems(response.data);
+        setState(prevVal =>{
+            return{
+            items: response.data,
+            size: prevVal.size,
+            sort: prevVal.sort
+            };
+        });
     })
     .catch(function (error) {
         console.log(error);
@@ -27,9 +37,15 @@ function Home(){
     }
 
     return(
-        <div className="home">
-            {items.map(CreateItem)}
+        <div className="content">
+            <div className="home">
+                {stateVar.items.map(CreateItem)}
+            </div>
+            <div className="sidebar">
+                Cart Items
+            </div>
         </div>
+        
     );
 }
 

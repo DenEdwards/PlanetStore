@@ -1,5 +1,5 @@
 body{
-    background-color:#0a0a0a;
+    background-color:white;
 }
 
 footer{
@@ -13,13 +13,23 @@ footer{
     padding-top: 15px;
 }
 
+a{
+    text-decoration: none;
+}
 a:hover{
     color: #B10DC9;
+    cursor: pointer;
 }
 a:active{
     color: #151436;
 }
 /********************* Home *********************/
+
+.content{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 .home{
     display: flex;
     flex-direction: row;
@@ -27,16 +37,30 @@ a:active{
     justify-content: flex-start;
     width: 80%;
     margin: auto;
+    flex: 3 60rem;
+}
+
+.sidebar{
+    flex: 1 20rem;
+
 }
 
 /********************* ItemCard *****************/
 .card{
-    height: 310px;
-    width: 300px;
-    box-shadow: 5px 10px 5px white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    align-items: left;
     margin: 12px;
-    background-color: rgb(53, 51, 51);
+    background-color: black;
     border-radius: 7px;
+    color: white;
+}
+.card ul{
+    list-style-type: none;
+}
+.card li{
+    flex: 1 1 5rem;
 }
 
 .card-icon{
@@ -48,34 +72,18 @@ a:active{
 }
 
 /* Image container */
-.img-add{
-    width: 90%;
-    height: 50%;
-    margin: auto;
-    text-align: center;
-    overflow: hidden;
-    border-radius: 7px;
-    background-color: black;
-}
-
 .card-img {
-    height: auto;
-    width: 100%;
+    max-height: 18rem;
+    max-width: 18rem;
+    background-color: black;
     margin: auto;
 }
 
 .plus-icon{
     position: absolute;
     left: 220px;
-    top: 179px;
+    bottom: 60px;
     font-size: 50px;
-    color: #625dee;
-}
-
-
-.name-container{
-    display: flex;
-    justify-content: space-around;
     color: white;
 }
 
