@@ -7,12 +7,12 @@ import axios from "axios";
 function Home(){
     const [stateVar, setState] = useState({
         items: [],
-        cartItems: [],
+        cartItems: localStorage.getItem("cartItems") ? JSON.parse(localStorage.getItem("cartItems")) : [],
         size: "",
         sort: "",
     });
 
-    function getAll(){
+    function getAll(){ 
         // Make a request for a user with a given ID
         axios.get("http://localhost:3001/items")
             .then(function (response) {
@@ -34,6 +34,11 @@ function Home(){
             getAll();  
     }, []);
     
+
+    function createOrder(order){
+        alert("Need to save order for: "+ order.name);
+    }
+
     function addToCart(item){
         console.log("added " + item.id);
         const tempCartItems = stateVar.cartItems.slice();
@@ -58,6 +63,7 @@ function Home(){
                 sort: prevVal.sort
             }
         })
+        localStorage.setItem("cartItems",JSON.stringify(tempCartItems));
     }
 
     function removeFromCart(item){
@@ -73,7 +79,9 @@ function Home(){
                 sort: prevVal.sort
             }
         })
-        
+        localStorage.setItem("cartItems",JSON.stringify(tempCartItems.filter((x) =>{
+            return x.id !== item.id
+        })));
     }
 
     function filterProducts(event){
@@ -174,7 +182,7 @@ function Home(){
                     </div>
                 </div>
                 <div className="sidebar">
-                    <Cart cartItems={stateVar.cartItems} removeFromCart={removeFromCart}/>
+                    <Cart  cartItems={stateVar.cartItems} removeFromCart={removeFromCart} createOrder={createOrder}/>
                 </div>
             </div>
         </div>

@@ -150,3 +150,25 @@ a:active{
     font-size: 20px;
     flex: 1;
 }
+
+/* Checkouot form */
+form{
+    width: 100%;
+}
+.form-container{
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+}
+
+.form-container li{
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+input{
+    padding: 3px;
+}
+
+
