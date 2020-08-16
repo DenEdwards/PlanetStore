@@ -30,14 +30,15 @@ a:active{
     flex-wrap: wrap;
 }
 
-.home{
+.filter-cards{
+    flex: 3 60rem;
+}
+
+.cards{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
-    width: 80%;
-    margin: auto;
-    flex: 3 60rem;
 }
 
 .sidebar{
@@ -87,3 +88,15 @@ a:active{
     color: white;
 }
 
+/********************* Filter *****************/
+.filter{
+    display: flex;
+    justify-content: space-betweens;
+    margin: 10px;
+    padding: 10px;
+    border-bottom: 1px #c0c0c0 solid;
+    font-size: 18px;
+}
+.filter div{
+    flex: 1;
+}
