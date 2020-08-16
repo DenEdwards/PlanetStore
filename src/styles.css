@@ -100,3 +100,53 @@ a:active{
 .filter div{
     flex: 1;
 }
+
+/********************* Cart *****************/
+.cart{
+    margin: 10px;
+    padding: 12px;
+    display: flex;
+}
+
+.cart-header{
+    border-bottom: 1px #c0c0c0 solid;
+}
+
+.cart-items{
+    padding: 0;
+    width: 100%;
+    list-style-type: none;
+}
+
+.cart-items img{
+    width: 100px;
+    border-radius: 7px;
+}
+
+.cart-items li{
+    display: flex;
+}
+
+.cart-items li div{
+    padding: 5px;
+}
+
+.cart-items li div:last-child{
+    flex: 1;
+}
+
+.right{
+    text-align: right;
+}
+
+.total{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.total div{
+    font-size: 20px;
+    flex: 1;
+}

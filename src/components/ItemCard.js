@@ -4,7 +4,6 @@ import { faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
 import { faCartPlus } from '@fortawesome/free-solid-svg-icons';
 
 function ItemCard(props){
-
     return(
         <div>
             <div className="card">
@@ -13,7 +12,7 @@ function ItemCard(props){
                 </div>
                     <img className="card-img" src={props.image} alt={props.name}></img>
                 <div >
-                <a className="plus-icon"><FontAwesomeIcon  icon={faCartPlus} /></a> 
+                <a onClick={() => props.addToCart(props)} className="plus-icon"><FontAwesomeIcon  icon={faCartPlus} /></a> 
                 </div>
                 <ul>
                     <li>

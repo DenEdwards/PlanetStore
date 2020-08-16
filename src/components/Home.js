@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from "react";
 import Filter from "./Filter";
 import ItemCard from "./ItemCard";
+import Cart from "./Cart";
 import axios from "axios";
 
 function Home(){
     const [stateVar, setState] = useState({
         items: [],
+        cartItems: [],
         size: "",
         sort: "",
     });
@@ -17,6 +19,7 @@ function Home(){
                 setState(prevVal =>{
                     return{
                     items: response.data,
+                    cartItems: prevVal.cartItems,
                     size: prevVal.size,
                     sort: prevVal.sort,
                     };
@@ -31,6 +34,47 @@ function Home(){
             getAll();  
     }, []);
     
+    function addToCart(item){
+        console.log("added " + item.id);
+        const tempCartItems = stateVar.cartItems.slice();
+        let alreadyInCart = false;
+        tempCartItems.forEach(product =>{
+            if(product.id === item.id){
+                product.count++;
+                alreadyInCart = true;
+                console.log("in: "+ product.count);
+            }
+        }) 
+        if(!alreadyInCart){
+            tempCartItems.push({...item, count: 1});
+            console.log(tempCartItems);
+        }
+        setState(prevVal=>{
+            console.log(tempCartItems);
+            return{
+                items: prevVal.items,
+                cartItems: tempCartItems,
+                size: prevVal.size,
+                sort: prevVal.sort
+            }
+        })
+    }
+
+    function removeFromCart(item){
+        const tempCartItems = stateVar.cartItems.slice();
+        setState(prevVal=>{
+            console.log(tempCartItems);
+            return{
+                items: prevVal.items,
+                cartItems: tempCartItems.filter((x) =>{
+                    return x.id !== item.id
+                }),
+                size: prevVal.size,
+                sort: prevVal.sort
+            }
+        })
+        
+    }
 
     function filterProducts(event){
         console.log(event.target.value);
@@ -40,6 +84,7 @@ function Home(){
             setState(prevVal =>{
                 return{
                     items: prevVal.items,
+                    cartItems: prevVal.cartItems,
                     size: value,
                     sort: prevVal.sort,
                 }
@@ -50,6 +95,7 @@ function Home(){
                     setState(prevVal =>{
                         return{
                         items: response.data,
+                        cartItems: prevVal.cartItems,
                         size: prevVal.size,
                         sort: prevVal.sort,
                         };
@@ -63,6 +109,7 @@ function Home(){
                                 );
                             }),
                             sort: prevVal.sort,
+                            cartItems: prevVal.cartItems,
                         }
                     });
                 })
@@ -80,6 +127,7 @@ function Home(){
             return{
                 sort: value,
                 size: prevVal.size,
+                cartItems: prevVal.cartItems,
                 items: stateVar.items
                             .slice()
                                 .sort((a,b) =>(
@@ -100,10 +148,12 @@ function Home(){
         return(
                 <ItemCard
                 key = {item._id}
+                id ={item._id}
                 name = {item.name}
                 description = {item.description}
                 price = {item.price}
                 image = {item.image}
+                addToCart={addToCart}
                 />
         );
     }
@@ -124,7 +174,7 @@ function Home(){
                     </div>
                 </div>
                 <div className="sidebar">
-                    Cart Items
+                    <Cart cartItems={stateVar.cartItems} removeFromCart={removeFromCart}/>
                 </div>
             </div>
         </div>

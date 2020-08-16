@@ -17,7 +17,7 @@ function Filter(props){
             <div className="filter-size">
                 Filter{" "}
                 <select value={props.size} onChange={props.filterProducts}>
-                    <option value="">ALL</option>
+                    <option value="">All</option>
                     <option value="Resource">Resource</option>
                     <option value="Terrestrial">Terrestrial</option>
                     <option value="Uninhabitable">Uninhabitable</option>
