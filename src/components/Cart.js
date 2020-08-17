@@ -1,4 +1,5 @@
 import React, {useState} from "react";
+import Fade from "react-reveal/Fade";
 
 function Cart(props){
 
@@ -60,6 +61,7 @@ function Cart(props){
             }
             <div>
                 <div className="cart">
+                <Fade left cascade={true}>
                     <ul className="cart-items">
                         {cartItems.map((item) =>{
                             return(
@@ -70,7 +72,7 @@ function Cart(props){
                                     <div>
                                         <div>{item.name}</div>
                                         <div className="right">
-                                            ${(item.price)} x {item.count}{" "}
+                                            ${(item.price).toFixed(2)} x {item.count}{" "}
                                             <button className="btn btn-danger" onClick={() => props.removeFromCart(item)}>Remove</button>
                                         </div>
                                     </div>
@@ -78,13 +80,15 @@ function Cart(props){
                             );
                         })}
                     </ul>
+                    </Fade>
+
                 </div>
                 {cartItems.length !== 0 && 
                     <div>
                         <div className="cart">
                             <div className="total">
                                 <div>
-                                    Total: ${cartItems.reduce((accumulator,currentItem) => accumulator + (currentItem.price*currentItem.count), 0)}
+                                    Total: ${(cartItems.reduce((accumulator,currentItem) => accumulator + (currentItem.price*currentItem.count), 0)).toFixed(2)}
                                 </div>
                                 <button onClick={() => {
                                     setState(prevVal=>{
@@ -100,6 +104,7 @@ function Cart(props){
                             </div>
                         </div>
                         {state.showCheckout &&(
+                            <Fade right cascade={true}>
                             <div className="cart"> 
                                 <form onSubmit={createOrder}>
                                     <ul className="form-container">
@@ -116,11 +121,12 @@ function Cart(props){
                                             <input name="address" type="address" required onChange={handleChange}></input>
                                         </li>
                                         <li>
-                                            <button className="button success" type="submit">Checkout</button>
+                                            <button className="btn btn-success" type="submit">Checkout</button>
                                         </li>
                                     </ul>
                                 </form>
                             </div>
+                            </Fade>
                         )}
                     </div>
                 }

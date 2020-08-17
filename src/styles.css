@@ -39,6 +39,7 @@ a:active{
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-left: 50px;
 }
 
 .sidebar{
@@ -81,11 +82,9 @@ a:active{
 }
 
 .plus-icon{
-    position: absolute;
-    left: 220px;
-    bottom: 60px;
-    font-size: 50px;
-    color: white;
+    color: rgb(133, 127, 127);
+    width: 98%;
+    margin: auto;
 }
 
 /********************* Filter *****************/
@@ -170,5 +169,48 @@ form{
 input{
     padding: 3px;
 }
+
+/* Modal */
+.modal-window{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    max-height: 96vh;
+}
+.modal-window img{
+    max-height: 100vh;
+    max-width: 30rem;
+    margin: 0 40px;
+    border-radius: 20px;
+}
+.product-info{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-height: 96vh;
+    flex: 1;
+
+}
+.product-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    margin: 20px;
+}
+.modal-buttons{
+    margin: 15px 0;
+    display: flex;
+    justify-content: space-between;
+    width: 270px;
+
+}
+.product-info h1{
+    font-size: 50px;
+}
+.product-info p{
+    font-size: 20px;
+    width: 90%;
+}
+
 
 
