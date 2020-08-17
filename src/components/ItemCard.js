@@ -1,12 +1,18 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Fade from "react-reveal/Fade";
 import Zoom from "react-reveal/Zoom";
 import Modal from "react-modal";
+import { connect } from "react-redux";
+import {fetchProducts} from "../actions/productActions"
 
 function ItemCard(props){
     const [state, setState] = useState({
         product: null,
-    })
+    });
+
+    useEffect(() =>{
+        props.fetchProducts();
+    });
 
     function openModal(item){
         setState(prevVal=>{
@@ -75,4 +81,6 @@ function ItemCard(props){
     );
 }
 
-export default ItemCard;
+export default connect((state) => ({product: state.items}), {
+    fetchProducts,
+})(ItemCard);

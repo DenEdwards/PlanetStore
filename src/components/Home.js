@@ -3,6 +3,8 @@ import Filter from "./Filter";
 import ItemCard from "./ItemCard";
 import Cart from "./Cart";
 import axios from "axios";
+import store from "../store";
+import { Provider } from "react-redux";
 
 function Home(){
     const [stateVar, setState] = useState({
@@ -11,7 +13,6 @@ function Home(){
         size: "",
         sort: "",
     });
-
     function getAll(){ 
         // Make a request for a user with a given ID
         axios.get("http://localhost:3001/items")
@@ -167,6 +168,7 @@ function Home(){
     }
 
     return(
+        <Provider store={store}>
         <div>
             <div className="content">
                 <div className="filter-cards">
@@ -178,7 +180,10 @@ function Home(){
                         sortProducts={sortProducts}
                     />
                     <div className="cards">
-                        {stateVar.items.map(CreateItem)}
+                    {
+                        !stateVar.items ? (<div>Loading...</div>):
+                        stateVar.items.map(CreateItem)
+                    } 
                     </div>
                 </div>
                 <div className="sidebar">
@@ -186,6 +191,7 @@ function Home(){
                 </div>
             </div>
         </div>
+        </Provider>
     );
 }
 
