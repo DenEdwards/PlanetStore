@@ -90,14 +90,14 @@ a:active{
 /********************* Filter *****************/
 .filter{
     display: flex;
-    justify-content: space-betweens;
-    margin: 10px;
+    justify-content: space-around;
+    margin: 10px 10px 10px 50px;
     padding: 10px;
     border-bottom: 1px #c0c0c0 solid;
-    font-size: 18px;
 }
 .filter div{
     flex: 1;
+    font-size: 23px;
 }
 
 /********************* Cart *****************/
@@ -108,6 +108,7 @@ a:active{
 }
 
 .cart-header{
+    font-size: 21px;
     border-bottom: 1px #c0c0c0 solid;
 }
 
@@ -272,4 +273,11 @@ input{
 
 .checkout-items div{
     margin: 10px;
+}
+
+/* Admin */
+.inventory{
+    display: flex; 
+    flex-direction: column;
+    margin: 30px;
 }

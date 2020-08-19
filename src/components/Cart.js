@@ -62,7 +62,7 @@ function Cart(props){
                 }
             }
         });
-        console.log(state.order);
+        props.createOrder(state.order);
         setState(prevVal=>{
             return{
                 showCheckout: !prevVal.showCheckout,
@@ -72,7 +72,6 @@ function Cart(props){
                 order: prevVal.order
             }
         });
-        props.createOrder(state.order);
     }
 
     function openModal(){
@@ -114,13 +113,13 @@ function Cart(props){
             }
             {
                 state.order && 
-                <Modal  className="Modal" ariaHideApp={true} isOpen={true} onRequestClose={closeModal}>
+                <Modal  className="Modal" ariaHideApp={false} isOpen={true} onRequestClose={closeModal}>
                     <div className="checkout-modal">
                     <Zoom>
                         <button className=" close-modal btn btn-danger" onClick={closeModal}>x</button>
                         <div className="order-details">
                             <h1 className="success-message">Your order has been placed.</h1>
-                            <h2>Order: {state.order._id}</h2>
+                            <h2>Order: </h2>
                             <ul>
                                 <div className="order-list">
                                 <li>
