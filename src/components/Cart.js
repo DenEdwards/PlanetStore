@@ -1,5 +1,7 @@
 import React, {useState} from "react";
 import Fade from "react-reveal/Fade";
+import Zoom from "react-reveal/Zoom";
+import Modal from "react-modal";
 
 function Cart(props){
 
@@ -8,7 +10,8 @@ function Cart(props){
         showCheckout: false,
         name: "",
         email: "",
-        address: ""
+        address: "",
+        order: null
     });
 
     function handleChange(event){
@@ -19,21 +22,24 @@ function Cart(props){
                     showCheckout: prevVal.showCheckout,
                     name: value,
                     email: prevVal.email,
-                    address: prevVal.address
+                    address: prevVal.address,
+                    order: prevVal.order
                 }
             }else if(name === "email"){
                 return{
                     showCheckout: prevVal.showCheckout,
                     name: prevVal.name,
                     email: value,
-                    address: prevVal.address
+                    address: prevVal.address,
+                    order: prevVal.order
                 }
             }else if(name === "address"){
                 return{
                     showCheckout: prevVal.showCheckout,
                     name: prevVal.name,
                     email: prevVal.email,
-                    address: value
+                    address: value,
+                    order: prevVal.order
                 }
             }
         })
@@ -41,15 +47,62 @@ function Cart(props){
 
     function createOrder(event){
         event.preventDefault();
-        const order = {
-            name: state.name,
-            email: state.email,
-            address: state.address,
-            cartItems: cartItems
-        };
-        console.log(state);
-        props.createOrder(order);
-        
+        setState(prevVal=>{
+            return{
+                showCheckout: prevVal.showCheckout,
+                name: prevVal.name,
+                email: prevVal.email,
+                address: prevVal.address,
+                order: {
+                    email: state.email,
+                    name: state.name,
+                    address: state.address,
+                    total: props.cartItems.reduce((accumulator, currentItem) => (accumulator + currentItem.price*currentItem.count),0).toFixed(2),
+                    cartItems: cartItems,
+                }
+            }
+        });
+        console.log(state.order);
+        setState(prevVal=>{
+            return{
+                showCheckout: !prevVal.showCheckout,
+                name: "",
+                email:"",
+                address: "",
+                order: prevVal.order
+            }
+        });
+        props.createOrder(state.order);
+    }
+
+    function openModal(){
+        setState(prevVal=>{
+            return{
+                showCheckout: prevVal.showCheckout,
+                name: prevVal.name,
+                email: prevVal.email,
+                address: prevVal.address,
+                order: {
+                    email: state.email,
+                    name: state.name,
+                    address: state.address,
+                    total: props.cartItems.reduce((accumulator, currentItem) => (accumulator + currentItem.price*currentItem.count),0).toFixed(2),
+                    cartItems: cartItems,
+                }
+            }
+        });
+    }
+
+    function closeModal(){
+        setState(prevVal=>{
+            return{
+                showCheckout: prevVal.showCheckout,
+                name: prevVal.name,
+                email: prevVal.email,
+                address: prevVal.address,
+                order: null
+            }
+        });
     }
 
     return(
@@ -58,6 +111,68 @@ function Cart(props){
                 :
                 cartItems.length > 1 ? <div className="cart cart-header">You have {cartItems.length} different Planets in your cart.</div>
                     : <div className="cart cart-header">You have {cartItems.length} Planet in your cart.</div>
+            }
+            {
+                state.order && 
+                <Modal  className="Modal" ariaHideApp={true} isOpen={true} onRequestClose={closeModal}>
+                    <div className="checkout-modal">
+                    <Zoom>
+                        <button className=" close-modal btn btn-danger" onClick={closeModal}>x</button>
+                        <div className="order-details">
+                            <h1 className="success-message">Your order has been placed.</h1>
+                            <h2>Order: {state.order._id}</h2>
+                            <ul>
+                                <div className="order-list">
+                                <li>
+                                    <div>
+                                        <h2>Name:</h2> 
+                                    </div>
+                                    <div>
+                                        <h3>{state.order.name}</h3> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <h2>Email:</h2> 
+                                    </div>
+                                    <div>
+                                        <h3>{state.order.email}</h3> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <h2>Address:</h2> 
+                                    </div>
+                                    <div>
+                                        <h3>{state.order.address}</h3> 
+                                    </div>
+                                </li>
+                                <li>
+                                    <div>
+                                        <h2>Total:</h2> 
+                                    </div>
+                                    <div>
+                                        <h3>${state.order.total}</h3> 
+                                    </div>
+                                </li>
+                                <li className="cart-items">
+                                    <div>
+                                        <h2>Cart Items:</h2> 
+                                    </div>
+                                    <div>
+                                            <h3 className="checkout-items">{state.order.cartItems.map((x,index)=>(
+                                                <div key={index} >
+                                                    {" "}{x.count}{" x "}{x.name}{", "}
+                                                </div>
+                                            ))}</h3> 
+                                    </div>
+                                </li>
+                                </div>
+                            </ul>
+                        </div>
+                    </Zoom>
+                    </div>
+                </Modal>
             }
             <div>
                 <div className="cart">
@@ -96,7 +211,8 @@ function Cart(props){
                                             showCheckout: true,
                                             name: prevVal.name,
                                             email: prevVal.email,
-                                            address: prevVal.address
+                                            address: prevVal.address,
+                                            order: prevVal.order
                                         }
                                     })
                                 }} className="btn btn-success">Proceed to checkout
@@ -110,18 +226,24 @@ function Cart(props){
                                     <ul className="form-container">
                                         <li>
                                             <label>Email</label>
-                                            <input name="email" type="email" required onChange={handleChange}></input>
+                                            <input name="email" type="email"  onChange={handleChange} required></input>
                                         </li>
                                         <li>
                                             <label>Name</label>
-                                            <input name="name" type="text" required onChange={handleChange}></input>
+                                            <input name="name" type="text"  onChange={handleChange} required></input>
                                         </li>
                                         <li>
                                             <label>Address</label>
-                                            <input name="address" type="address" required onChange={handleChange}></input>
+                                            <input name="address" type="address"  onChange={handleChange} required></input>
                                         </li>
                                         <li>
-                                            <button className="btn btn-success" type="submit">Checkout</button>
+                                            <button onClick={() => {
+                                                if(state.name || state.email || state.address !== ""){
+                                                    openModal(state.order);
+                                                }else{
+                                                    closeModal();
+                                                }
+                                            }} className="btn btn-success" type="submit">Checkout</button>
                                         </li>
                                     </ul>
                                 </form>

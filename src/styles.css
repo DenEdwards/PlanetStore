@@ -212,5 +212,64 @@ input{
     width: 90%;
 }
 
+/* Checkout Modal */
+.Modal{
+    background-color: #ffffff;
+    background-image: url("https://www.transparenttextures.com/patterns/gplay.png");
+    padding: 30px;
+}
+
+.checkout-modal{
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    color: black;
+    border-radius: 9px;
+}
+
+.order-details{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-around;
+    margin: 10px auto auto 100px;
+}
+.order-details h1{
+    font-size: 55px;
+}
+
+.order-details h2{
+    font-size: 45px;
+}
 
 
+.order-list{
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    flex-wrap: wrap;
+    list-style-type: none;
+}
+
+.order-list li{
+    margin: 30px;
+}
+
+.cart-items{
+    flex: 1;
+}
+
+.checkout-items{
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 60%;
+    font-size: x-large;
+}
+
+.checkout-items div{
+    margin: 10px;
+}

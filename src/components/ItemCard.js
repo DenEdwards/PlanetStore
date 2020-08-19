@@ -50,7 +50,7 @@ function ItemCard(props){
             </Fade>
             {
                 state.product &&(
-                    <Modal ariaHideApp={false} isOpen={true} onRequestClose={closeModal}>
+                    <Modal className="Modal" ariaHideApp={false} isOpen={true} onRequestClose={closeModal}>
                         <Zoom>
                             
                             <div className="modal-window">

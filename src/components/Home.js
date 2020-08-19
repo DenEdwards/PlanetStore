@@ -37,7 +37,10 @@ function Home(){
     
 
     function createOrder(order){
-        alert("Need to save order for: "+ order.name);
+        console.log(order);
+
+        axios.post("http://localhost:3001/orders/add", order)
+            .then(res => console.log(res.data));
     }
 
     function addToCart(item){
@@ -187,7 +190,7 @@ function Home(){
                     </div>
                 </div>
                 <div className="sidebar">
-                    <Cart  cartItems={stateVar.cartItems} removeFromCart={removeFromCart} createOrder={createOrder}/>
+                    <Cart cartItems={stateVar.cartItems} removeFromCart={removeFromCart} createOrder={createOrder}/>
                 </div>
             </div>
         </div>
