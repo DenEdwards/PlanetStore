@@ -18,10 +18,12 @@ app.use(cors());
 //allows server to parse objects as json objects
 app.use(express.json());
 
-app.use((req, res, next) => {
-    res.header('Access-Control-Allow-Origin', '*');
+app.use(function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "YOUR-DOMAIN.TLD"); // update to match the domain you will make the request from
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     next();
-  });
+});
+
 
 //connect to mongodb atlas with our .env variable
 mongoose.connect(process.env.MONGODB_ATLAS, {useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true });
