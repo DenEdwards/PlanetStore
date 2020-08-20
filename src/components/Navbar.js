@@ -7,6 +7,13 @@ function Navbar(){
         <nav className="navbar navbar-dark bg-dark navbar-expand-lg ">
         {/* Instead of anchor we use Link */}
             <Link to="/" className="navbar-brand"> <h1>PlanetStore</h1> </Link>
+            <div className="collpase navbar-collapse">
+                <ul className="navbar-nav mr-auto">
+                    <li className="navbar-item">
+                        <Link to="/admin" className="nav-link">Admin</Link>
+                    </li>
+                </ul>
+            </div>
         </nav>
     );
 }
