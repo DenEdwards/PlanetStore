@@ -15,7 +15,7 @@ function Home(){
     });
     function getAll(){ 
         // Make a request for a user with a given ID
-        axios.get("http://localhost:3001/")
+        axios.get("https://planet-store.herokuapp.com/items")
             .then(function (response) {
                 setState(prevVal =>{
                     return{
@@ -40,7 +40,7 @@ function Home(){
         console.log("Order: ");
         console.log(order);
 
-        axios.post("http://localhost:3001/orders/add", order)
+        axios.post("https://planet-store.herokuapp.com/orders/add", order)
             .then(res => console.log(res.data));
     }
 
@@ -103,7 +103,7 @@ function Home(){
                 }
             });
         }else{
-            axios.get("http://localhost:3001/items")
+            axios.get("https://planet-store.herokuapp.com/items")
                 .then(function (response) {
                     setState(prevVal =>{
                         return{

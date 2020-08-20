@@ -70,7 +70,7 @@ function AddItem(){
 
         console.log(food);
 
-        axios.post("http://localhost:3001/items/add", food)
+        axios.post("https://planet-store.herokuapp.com/items/add", food)
             .then(res => console.log(res.data));
     }
 

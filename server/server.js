@@ -33,5 +33,5 @@ app.use("/items", itemRouter);
 app.use("/orders", orderRouter);
 
 app.listen(port, () => {
-    console.log(`Example app listening at http://localhost:${port}`)
+    console.log(`app listening at:${port}`)
 });
