@@ -14,7 +14,7 @@ app = express();
 const port = process.env.PORT || 3001;
 
 //cors enables scripts running on a browser client to interact with resources from a different origin
-app.use(cors());
+
 //allows server to parse objects as json objects
 app.use(express.json());
 
