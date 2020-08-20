@@ -6,11 +6,13 @@ footer{
     margin-top: 1rem;
     padding: 1rem;
     background-color: #343a40;
-    align-items: center;
-    position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
+}
+footer p{
+    margin: 0 0 0 39%;
+    color: #ffffff;
 }
 
 a{
@@ -45,19 +47,6 @@ a:active{
 .sidebar{
     flex: 1 20rem;
 
-}
-/********************* Admin *****************/
-.add-button{
-    margin:30px;
-}
-.add-link{
-    color: #ffffff;
-}
-.add-link:hover{
-    color: #ffffff;
-}
-.add-link:focus{
-    color: #ffffff;
 }
 
 /********************* ItemCard *****************/
@@ -288,9 +277,34 @@ input{
     margin: 10px;
 }
 
-/* Admin */
+/********************* Admin *****************/
+.add-button{
+    margin:0 0 0 30px;
+}
+.add-link{
+    color: #ffffff;
+}
+.add-link:hover{
+    color: #ffffff;
+}
+.add-link:focus{
+    color: #ffffff;
+}
+/* Add planet */
+.add-ul{
+    list-style-type: none;
+}
+.add-ul li{
+    margin: 15px;
+}
+
 .inventory{
     display: flex; 
     flex-direction: column;
     margin: 30px;
+}
+
+/* Add items */
+.container{
+    height: 100vh;
 }

@@ -78,42 +78,61 @@ function AddItem(){
     <div className="container">
         <h1>Add Items</h1>
         <form>
-            <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Name"
-            name="name"
-            value={foodItem.name}
-            />
-            <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Description"
-            name="description"
-            value={foodItem.description}
-            />
-            <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Price"
-            name="price"
-            value={foodItem.price}
-            />
-            <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Image"
-            name="image"
-            value={foodItem.image}
-            />
-            <input
-            onChange={handleChange}
-            type="text"
-            placeholder="Attributes"
-            name="attributes"
-            value={foodItem.attributes}
-            />
-            <button onClick={onSubmit}>Submit</button>
+            <ul className="add-ul">
+                <li>
+                    <label>Name: </label>
+                    <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Name"
+                    name="name"
+                    value={foodItem.name}
+                    />
+                </li>
+                <li>
+                    <label>Description: </label>
+                    <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Description"
+                    name="description"
+                    value={foodItem.description}
+                    />
+                </li>
+                <li>
+                    <label>Price: </label>
+                    <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Price"
+                    name="price"
+                    value={foodItem.price}
+                    />
+                </li>
+                <li>
+                    <label>Image: </label>
+                    <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Image"
+                    name="image"
+                    value={foodItem.image}
+                    />
+                </li>
+                <li>
+                    <label>Attributes: </label>
+                    <input
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Attributes"
+                    name="attributes"
+                    value={foodItem.attributes}
+                    />
+                </li>
+                <li>
+                    <button className="btn btn-primary" onClick={onSubmit}>Submit</button>
+                </li>
+            </ul>
         </form>
     </div>
     );
