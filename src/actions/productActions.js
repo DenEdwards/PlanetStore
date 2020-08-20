@@ -2,7 +2,7 @@ import { FETCH_PRODUCTS } from "../types";
 import axios from "axios";
 
 export const fetchProducts = () => async(dispatch) =>{
-    return axios.get("http://localhost:3001/items")
+    return axios.get("https://planet-store.herokuapp.com/items")
         .then(({data}) =>{
             dispatch({
                 type: FETCH_PRODUCTS,

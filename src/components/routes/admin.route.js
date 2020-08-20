@@ -8,7 +8,7 @@ function Admin(){
     });
 
     function getOrders(){
-        axios.get("http://localhost:3001/orders/")
+        axios.get("https://planet-store.herokuapp.com/orders/")
             .then(function (response) {
                 console.log(response.data);
                 setState(() =>{
