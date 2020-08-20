@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from "react";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 // NEED TO FIGURE OUT PROBLEM WITH TOTAL 
 function Admin(){
 
@@ -28,7 +30,7 @@ function Admin(){
     
     return(
     <div>
-        <h1 style={{marginLeft:"30px"}}>Admin</h1>
+        <h1 style={{margin:"30px"}}>Admin</h1><button className="btn btn-success"><Link to="/add" className="nav-link">Add Item</Link></button>
         {state.orders.map((order, index) =>{
             return(
                 <div className="inventory" key={index}>
