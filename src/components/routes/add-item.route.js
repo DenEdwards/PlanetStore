@@ -80,7 +80,7 @@ function AddItem(){
         <form>
             <ul className="add-ul">
                 <li>
-                    <label>Name:{" "}</label>
+                    <label>Name:</label>
                     <input
                     onChange={handleChange}
                     type="text"
@@ -90,7 +90,7 @@ function AddItem(){
                     />
                 </li>
                 <li>
-                    <label>Description:{" "}</label>
+                    <label>Description:</label>
                     <input
                     onChange={handleChange}
                     type="text"
@@ -100,7 +100,7 @@ function AddItem(){
                     />
                 </li>
                 <li>
-                    <label>Price:{" "}</label>
+                    <label>Price:</label>
                     <input
                     onChange={handleChange}
                     type="text"
@@ -110,7 +110,7 @@ function AddItem(){
                     />
                 </li>
                 <li>
-                    <label>Image:{" "}</label>
+                    <label>Image:</label>
                     <input
                     onChange={handleChange}
                     type="text"
@@ -120,7 +120,7 @@ function AddItem(){
                     />
                 </li>
                 <li>
-                    <label>Attributes:{" "}</label>
+                    <label>Attributes:</label>
                     <input
                     onChange={handleChange}
                     type="text"
