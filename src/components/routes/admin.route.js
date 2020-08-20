@@ -30,7 +30,8 @@ function Admin(){
     
     return(
     <div>
-        <h1 style={{margin:"30px"}}>Admin</h1><button className="btn btn-success add-button"><Link to="/add" className="nav-link">Add Item</Link></button>
+        <h1 style={{margin:"30px"}}>Admin</h1>
+        <button className=" add-button btn btn-success "><Link to="/add" className="nav-link add-link">Add Item</Link></button>
         {state.orders.map((order, index) =>{
             return(
                 <div className="inventory" key={index}>
