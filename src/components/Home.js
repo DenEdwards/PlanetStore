@@ -15,7 +15,7 @@ function Home(){
     });
     function getAll(){ 
         // Make a request for a user with a given ID
-        axios.get("http://localhost:3001/items")
+        axios.get("http://localhost:3001/")
             .then(function (response) {
                 setState(prevVal =>{
                     return{
