@@ -18,7 +18,7 @@
     <a href="https://github.com/DenEdwards/PlanetStore"><strong>Explore the docs »</strong></a>
     <br />
     <br />
-    <a href="https://https://planet-store.herokuapp.com/">View Demo</a>
+    <a href="https://planet-store.herokuapp.com/">View Demo</a>
   </p>
 </p>
 
