@@ -1,6 +1,55 @@
+[![Contributors][contributors-shield]][contributors-url]
+[![Forks][forks-shield]][forks-url]
+[![Stargazers][stars-shield]][stars-url]
+[![LinkedIn][linkedin-shield]][linkedin-url]
+
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="https://https://planet-store.herokuapp.com/">
+    <img src="ReadMePic.PNG" alt="Logo" width="500" height="auto">
+  </a>
+
+  <h3 align="center">PlanetStore</h3>
+
+  <p align="center">
+    A store made using MERN stack where you can purchase different planets.
+    <br />
+    <a href="https://github.com/DenEdwards/PlanetStore"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://https://planet-store.herokuapp.com/">View Demo</a>
+  </p>
+</p>
+
+
+
+<!-- TABLE OF CONTENTS -->
+## Table of Contents
+
+* [About the Project](#about-the-project)
+  * [Built With](#built-with)
+* [Getting Started](#getting-started)
+* [Contact](#contact)
+* [Acknowledgements](#acknowledgements)
+
+
+
+<!-- ABOUT THE PROJECT -->
+## About The Project
+
+An online marketplace where the user is able to purchase their own planet online.
+
+### Built With
+
+* [React](https://reactjs.org/)
+
+<!-- GETTING STARTED -->
+## Getting Started
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Available Scripts
 
 In the project directory, you can run:
 
@@ -37,32 +86,42 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+<!-- CONTACT -->
+## Contact
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+[Denzel Edwards](https://https://denedwards.github.io/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Project Link: [https://https://github.com/DenEdwards/PlanetStore](https://https://github.com/DenEdwards/PlanetStore)
 
-### Code Splitting
+<!-- ACKNOWLEDGEMENTS -->
+## Acknowledgements
+* [Heroku](https://heroku.com)
+* [Img Shields](https://shields.io)
+* [Font Awesome](https://fontawesome.com)
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+<!-- MARKDOWN LINKS & IMAGES -->
+<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
+[contributors-shield]: https://img.shields.io/github/contributors/DenEdwards/PlanetStore.svg?style=flat-square
+[contributors-url]: https://github.com/DenEdwards/PlanetStore/graphs/contributors
 
-### Advanced Configuration
+[forks-shield]: https://img.shields.io/github/forks/DenEdwards/PlanetStore.svg?style=flat-square
+[forks-url]: https://github.com/DenEdwards/PlanetStore/network/members
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+[stars-shield]: https://img.shields.io/github/stars/DenEdwards/PlanetStore.svg?style=flat-square
+[stars-url]: https://github.com/DenEdwards/PlanetStore/stargazers
 
-### Deployment
+[issues-shield]: https://img.shields.io/github/issues/DenEdwards/PlanetStore
+[issues-url]: https://github.com/DenEdwards/PlanetStore/issues
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=flat-square&logo=linkedin&colorB=555
+[linkedin-url]: https://www.linkedin.com/in/denzel-edwards-093927170/
 
-### `npm run build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+
+
+
